@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+    <title>
+        Архив статей
+    </title>
+    <style>
+        .archive{
+            }
+    </style>
+    <body>
+        <link rel="stylesheet" href="/static/css/articles.css">
+        <div class="header">
+            <img src="https://mtuci.tech/wp-content/uploads/2019/10/logo.png" alt="Logo" width="280" height="280">
+        </div>
+        <div class="archive">
+            {% for post in posts %}
+                <div class="one-post">
+                    <h2 class="post-title">
+                        <a href="http://127.0.0.1:8000/article/{{post.id}}">{{post.title}}</a>
+                    </h2>
+                    <div class="article-info">
+                        <div class="article-author">{{ post.author.username}}</div>
+                        <div class="article-created-date">{{ post.created_date }}</div>
+                    </div>
+                    <p class="article-text">{{ post.get_excerpt }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
